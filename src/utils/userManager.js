@@ -16,6 +16,7 @@ const userManagerConfig = {
   client_id: '2d27c380-eebe-0138-efdf-06835c02825837817',
   redirect_uri: `${window.location.protocol}//${window.location.hostname}${window.location.port ? `:${window.location.port}` : ''}/callback`,
   response_type: 'token id_token',
+  //response_type: 'code',
   scope: 'openid profile',
   authority: 'https://bonniernews.onelogin.com/oidc/2',
   //metadata: {
@@ -26,6 +27,7 @@ const userManagerConfig = {
   //},
   silent_redirect_uri: `${window.location.protocol}//${window.location.hostname}${window.location.port ? `:${window.location.port}` : ''}/silent_renew.html`,
   automaticSilentRenew: true,
+  includeIdTokenInSilentRenew: false,
   filterProtocolClaims: true,
   loadUserInfo: true,
 };

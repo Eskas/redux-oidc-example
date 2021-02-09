@@ -10585,6 +10585,7 @@ var userManagerConfig = {
   client_id: '2d27c380-eebe-0138-efdf-06835c02825837817',
   redirect_uri: window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + '/callback',
   response_type: 'token id_token',
+  //response_type: 'code',
   scope: 'openid profile',
   authority: 'https://bonniernews.onelogin.com/oidc/2',
   //metadata: {
@@ -10595,6 +10596,7 @@ var userManagerConfig = {
   //},
   silent_redirect_uri: window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + '/silent_renew.html',
   automaticSilentRenew: true,
+  includeIdTokenInSilentRenew: false,
   filterProtocolClaims: true,
   loadUserInfo: true
 };
@@ -37458,7 +37460,9 @@ var MainPage = function (_React$Component) {
 
 
         // display the current user
-        value: function showUserInfoButtonClick(event) {}
+        value: function showUserInfoButtonClick(event) {
+            alert(JSON.stringify(this.props.user, null, 2));
+        }
     }, {
         key: "render",
         value: function render() {
@@ -37498,7 +37502,7 @@ var MainPage = function (_React$Component) {
                     {
                         onClick: function onClick(event) {
                             event.preventDefault();
-                            alert(JSON.stringify(_this3.props.user, null, 2));
+                            _this3.showUserInfoButtonClick(event);
                         }
                     },
                     "Show user info"

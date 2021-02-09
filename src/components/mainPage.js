@@ -30,6 +30,7 @@ class MainPage extends React.Component {
 
     // display the current user
     showUserInfoButtonClick(event) {
+        alert(JSON.stringify(this.props.user, null, 2));
     }
 
     render() {
@@ -49,7 +50,7 @@ class MainPage extends React.Component {
                 <button
                     onClick={event => {
                         event.preventDefault();
-                        alert(JSON.stringify(this.props.user, null, 2));
+                        this.showUserInfoButtonClick(event);
                     }}
                 >
                     Show user info
